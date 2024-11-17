@@ -153,7 +153,7 @@ chips.forEach((chip, index) => {
 const changeOutput = () => {
   document.querySelector(
     "output"
-  ).innerHTML = `<p class="code">filter: <mark class="green">motion-blur</mark>(${~~angle}, ${
+  ).innerHTML = `<p class="code">filter: <mark class="green">motion-blur</mark>(${~~angle}deg, ${
     offsetX || 0
   }, ${offsetY || 0}, <mark class="red">${value || 0}</mark>,
     <mark class="red">${increment || 0}</mark>,
