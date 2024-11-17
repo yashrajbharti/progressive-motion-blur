@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progressive Motion Blur Effects</title>
+    <meta name="description" content="Progressive Blur CSS WG draft example by Yash">
+    <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "@material/web/": "https://esm.run/@material/web/"
+        }
+      }
+    </script>
+    <script type="module">
+        import '@material/web/all.js';
+        import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles.js';
+
+        document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+    </script>
+    <style>
+        :root,
+        :host {
+            --md-sys-color-background: #0f1418;
+            --md-sys-color-on-background: #dfe3e8;
+            --md-sys-color-surface: #0f1418;
+            --md-sys-color-surface-dim: #0f1418;
+            --md-sys-color-surface-bright: #353a3e;
+            --md-sys-color-surface-container-lowest: #0a0f12;
+            --md-sys-color-surface-container-low: #171c20;
+            --md-sys-color-surface-container: #1b2024;
+            --md-sys-color-surface-container-high: #262b2f;
+            --md-sys-color-surface-container-highest: #313539;
+            --md-sys-color-on-surface: #dfe3e8;
+            --md-sys-color-surface-variant: #3f4850;
+            --md-sys-color-on-surface-variant: #bec8d1;
+            --md-sys-color-inverse-surface: #dfe3e8;
+            --md-sys-color-inverse-on-surface: #2c3135;
+            --md-sys-color-outline: #88929b;
+            --md-sys-color-outline-variant: #3f4850;
+            --md-sys-color-shadow: #000000;
+            --md-sys-color-scrim: #000000;
+            --md-sys-color-surface-tint: #87ceff;
+            --md-sys-color-primary: #b3deff;
+            --md-sys-color-on-primary: #00344d;
+            --md-sys-color-primary-container: #4cb9f8;
+            --md-sys-color-on-primary-container: #00273b;
+            --md-sys-color-inverse-primary: #006590;
+            --md-sys-color-secondary: #a8cbe6;
+            --md-sys-color-on-secondary: #0b344a;
+            --md-sys-color-secondary-container: #1f435a;
+            --md-sys-color-on-secondary-container: #b6d9f5;
+            --md-sys-color-tertiary: #f3ccff;
+            --md-sys-color-on-tertiary: #4d1168;
+            --md-sys-color-tertiary-container: #d997f3;
+            --md-sys-color-on-tertiary-container: #40005a;
+            --md-sys-color-error: #ffb4ab;
+            --md-sys-color-on-error: #690005;
+            --md-sys-color-error-container: #93000a;
+            --md-sys-color-on-error-container: #ffdad6;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <main>
+        <h1>Progressive Blur Effect</h1>
+        <p class="description">
+            The <b>Progressive Blur Effect Visualizer</b> is a WIP (work in progress) tool to showcase the syntax for
+            motion blur
+            effects, specifically the <b>progressive motion blur</b>, where the value of blur increments in the
+            direction
+            of blur
+            (like acceleration). This work is created by
+            <a href="https://github.com/yashrajbharti" target="_blank" rel="noopener">me 👋</a>, and is in support of
+            the W3C
+            css-wg-draft
+            <a href="https://github.com/w3c/csswg-drafts/issues/11134" target="_blank" rel="noopener">issue #11134</a>.
+
+            The motivation to do this originally came from the motion blur
+            <a href="https://github.com/w3c/csswg-drafts/issues/3837" target="_blank" rel="noopener">issue #3837</a> by
+            Adam Argyle (Google Chrome CSS DevRel), whose work inspired me to propose motion blur as a native CSS
+            property,
+            similar to the blur filters available in SVG—eliminating the dependency on SVG for such effects.
+
+            The <b>Progressive Motion Blur</b> can also function as a <b>Partial Blur effect</b> when only offset and
+            blur
+            values
+            are provided, without incremental changes.
+
+            This tool is designed to visualize the concept of progressive motion blur and may evolve as per feedback and
+            requirements. If you'd like to contribute or suggest improvements, feel free to explore the
+            <a href="https://github.com/yashrajbharti/progressive-motion-blur" target="_blank" rel="noopener">GitHub
+                repo</a> or
+            the <a href="https://codepen.io/driftblaze/pen/NWQmyKY" target="_blank" rel="noopener">CodePen</a>.
+        </p>
+
+        <div class="container">
+            <canvas id="progressiveBlurCanvas" width="300" height="300"></canvas>
+            <span class="arrow">&#8594;</span>
+            <span class="triangleY">&#9654;</span>
+            <span class="triangleX">&#9650;</span>
+        </div>
+
+        <p class="code">filter: <mark class="green">motion-blur</mark>(angle, x-offset, y-offset, <mark
+                class="red">value</mark>,
+            <mark class="red">increment</mark>,
+            <mark class="green">progressive</mark>)
+        </p>
+
+        <div class="examples">
+            <md-chip-set>
+                <md-assist-chip label="(0, 0.5, 0.5, 5, 0)"></md-assist-chip>
+                <md-assist-chip label="(225, 0, 0, 0, 0.05)"></md-assist-chip>
+                <md-assist-chip label="(94, 0.5, 0, 1, 0.02)"></md-assist-chip>
+                <md-assist-chip label="(0, 0.3, 0, 0, 0.5)"></md-assist-chip>
+                <md-assist-chip label="(90, 0, 0.5, 0, 0.5)"></md-assist-chip>
+
+            </md-chip-set>
+        </div>
+
+        <form action="" name="progressive">
+            <fieldset>
+                <legend>Progress Blur Configurations</legend>
+                <div class="slider">
+                    <label for="angleSlider">Angle 0-360 (in degrees)</label>
+                    <md-slider id="angleSlider" min="0" max="360" value="0" labeled></md-slider>
+                </div>
+
+                <div role="radiogroup" aria-labelledby="group-title">
+                    <p id="group-title">Angle start point (in string) </p>
+                    <div class="radio-group">
+                        <md-radio name="angle" value="to right" id="angleToRight"></md-radio>
+                        <label for="angleToRight">to right</label>
+
+                        <md-radio name="angle" value="to bottom" id="angleToBottom"></md-radio>
+                        <label for="angleToBottom">to bottom</label>
+
+                        <md-radio name="angle" value="to left" id="angleToLeft"></md-radio>
+                        <label for="angleToLeft">to left</label>
+
+                        <md-radio name="angle" value="to top" id="angleToTop"></md-radio>
+                        <label for="angleToTop">to top</label>
+
+                        <md-radio name="angle" value="top-right" id="angleTopRight"></md-radio>
+                        <label for="angleTopRight">top-right</label>
+
+                        <md-radio name="angle" value="top-left" id="angleTopLeft"></md-radio>
+                        <label for="angleTopLeft">top-left</label>
+
+                        <md-radio name="angle" value="bottom-left" id="angleBottomLeft"></md-radio>
+                        <label for="angleBottomLeft">bottom-left</label>
+
+                        <md-radio name="angle" value="bottom-right" id="angleBottomRight"></md-radio>
+                        <label for="angleBottomRight">bottom-right</label>
+                    </div>
+                    <div class="offset-field">
+                        <md-outlined-text-field label="x-offset" type="number" inputMode="numeric" max="1" no-spinner
+                            value="0">
+                        </md-outlined-text-field>
+                        <md-outlined-text-field label="y-offset" type="number" inputMode="numeric" max="1" no-spinner
+                            value="0">
+                        </md-outlined-text-field>
+                    </div>
+                    <div class="blur-value-field">
+                        <md-outlined-text-field label="value" type="number" inputMode="numeric" no-spinner value="0">
+                        </md-outlined-text-field>
+                        <md-outlined-text-field label="increment" type="number" inputMode="numeric" no-spinner
+                            value="0.02">
+                        </md-outlined-text-field>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+
+        <output>
+            <p class="code">filter: <mark class="green">motion-blur</mark>(0, 0, 0, <mark class="red">0</mark>,
+                <mark class="red">0.02</mark>,
+                <mark class="green">progressive</mark>)
+            </p>
+        </output>
+    </main>
+    <script src="app.js"></script>
+</body>
+
+</html>

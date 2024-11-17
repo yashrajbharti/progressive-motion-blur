@@ -1,0 +1,118 @@
+body {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--md-sys-color-background);
+    color: var(--md-sys-color-primary);
+}
+
+.code {
+    background-color: var(--md-sys-color-surface-container);
+    color: var(--md-sys-color-primary);
+    padding: 20px;
+    border-radius: 5px;
+    margin-block-start: 25px;
+}
+
+main {
+    padding: 20px 10px;
+}
+
+.description {
+    text-align: start;
+    background-color: var(--md-sys-color-surface-container);
+    padding: 20px;
+    border-inline-start: 4px solid var(--md-sys-color-primary);
+    margin-block-end: 30px;
+    line-height: 1.6;
+}
+
+.description a {
+    color: var(--md-sys-color-tertiary);
+}
+
+mark {
+    background-color: transparent;
+}
+
+mark.green {
+    color: #A8C966
+}
+
+mark.red {
+    color: #e46666;
+}
+
+.container {
+    position: relative;
+    display: inline-block;
+}
+
+.arrow {
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    translate: -50% -50%;
+    background-color: var(--md-sys-color-background);
+    border-radius: 4px;
+    opacity: 0.8;
+}
+
+.triangleY {
+    position: absolute;
+    inset-inline-start: -15px;
+    inset-block-start: -8px;
+    color: var(--md-sys-color-error);
+}
+
+.triangleX {
+    position: absolute;
+    inset-inline-start: -8px;
+    inset-block-end: -15px;
+    color: var(--md-sys-color-error);
+}
+
+.examples {
+    margin: 20px
+}
+
+.examples md-chip-set {
+    justify-content: center;
+}
+
+canvas {
+    border-radius: 5px;
+}
+
+
+fieldset {
+    padding-block-end: 30px;
+}
+
+.slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin: 20px;
+}
+
+.radio-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-block-end: 30px;
+}
+
+.radio-group label {
+    padding-inline-end: 15px;
+    padding-block: 5px;
+}
+
+.offset-field,
+.blur-value-field {
+    margin-block-start: 20px;
+}
