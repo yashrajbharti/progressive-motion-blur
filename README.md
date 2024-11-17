@@ -68,7 +68,7 @@ Instead of providing numerical angles (0-360°), you can use the following intui
 <img width="296" alt="Progressive Motion Blur of 0.045" src="https://github.com/user-attachments/assets/093b9f4f-f98d-4f3c-a180-46c348606bd7">
 <img width="296" alt="Progressive Motion Blur of 0.045 with x-offset 0.6" src="https://github.com/user-attachments/assets/c2d01908-d53f-4fd5-a640-333f33e5c3e0">
 
-The examples showcase `No Blur effect`, `Progressive Motion Blur of 0.02`, `Progressive Motion Blur of 0.045` and `Progressive Motion Blur of 0.045 with x-offset 0.6` respectively.
+The examples showcase: `No Blur effect`, `Progressive Motion Blur of 0.02`, `Progressive Motion Blur of 0.045` and `Progressive Motion Blur of 0.045 with x-offset 0.6` respectively, with direction of motion blur set as `to right` or `0deg`.
 
 
 ## 📌 Notes  
