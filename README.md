@@ -61,10 +61,20 @@ Instead of providing numerical angles (0-360°), you can use the following intui
 
 ---
 
+## 🧩 Examples 
+
+<img width="296" alt="No Blur" src="https://github.com/user-attachments/assets/519eb3f0-0e43-4901-9cfd-1ae5830776d7">
+<img width="296" alt="Progressive Motion Blur of 0.02" src="https://github.com/user-attachments/assets/324bf733-6629-4bb3-b722-f5f4487ba2a8">
+<img width="296" alt="Progressive Motion Blur of 0.045" src="https://github.com/user-attachments/assets/093b9f4f-f98d-4f3c-a180-46c348606bd7">
+<img width="296" alt="Progressive Motion Blur of 0.045 with x-offset 0.6" src="https://github.com/user-attachments/assets/c2d01908-d53f-4fd5-a640-333f33e5c3e0">
+
+The examples showcase `No Blur effect`, `Progressive Motion Blur of 0.02`, `Progressive Motion Blur of 0.045` and `Progressive Motion Blur of 0.045 with x-offset 0.6` respectively.
+
+
 ## 📌 Notes  
 
 1. **Performance**: Progressive blur involves intensive canvas operations; optimize for smaller images.  
-2. **Browser Support**: Ensure the browser supports `canvas` and `filter: blur`.  
+2. **Browser Support**: Ensure the browser supports `canvas`, and `CanvasRenderingContext2D API: filter` [Caniuse](https://caniuse.com/mdn-api_canvasrenderingcontext2d_filter).  
 
 ---
 
