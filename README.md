@@ -17,6 +17,10 @@ This project aligns with the ongoing discussion in the W3C CSS Working Group, sp
 
 ## 🎯 Syntax and Parameters  
 
+```css
+filter: motion-blur(<Angle>, <Offset-X>, <Offset-Y>, <Initial-Blur-Value>, <Incremental-Value>, progressive);
+```
+
 Here is a breakdown of the parameters that drive the motion blur visualization:  
 
 | **Parameter**       | **Description**                                                                                     | **Type**        | **Default** | **Allowed Values**                 |  
