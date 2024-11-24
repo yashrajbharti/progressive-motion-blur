@@ -2,7 +2,8 @@
 
 The **Progressive Blur Effect Visualizer** is an interactive web tool that demonstrates the concept of **progressive motion blur**, where the blur value increments progressively in the direction of the effect. This tool serves as a proof-of-concept for incorporating motion blur as a CSS property, aiming to eliminate SVG dependencies for similar effects.  
 
-This project aligns with the ongoing discussion in the W3C CSS Working Group, specifically issue [#11134](https://github.com/w3c/csswg-drafts/issues/11134), and takes inspiration from the motion blur discussion initiated in issue [#3837](https://github.com/w3c/csswg-drafts/issues/3837) by [Adam Argyle](https://github.com/argyleink).  
+> [!IMPORTANT]
+> This project aligns with the ongoing discussion in the W3C CSS Working Group, specifically issue [#11134](https://github.com/w3c/csswg-drafts/issues/11134), and takes inspiration from the motion blur discussion initiated in issue [#3837](https://github.com/w3c/csswg-drafts/issues/3837) by [Adam Argyle](https://github.com/argyleink).  
 
 ---
 
